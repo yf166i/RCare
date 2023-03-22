@@ -1,0 +1,30 @@
+ja:
+  activerecord:
+    models:
+      user: ユーザー
+      user_of_facility: 利用者
+      case_report: 事例記録
+    attributes:
+      user:
+        name: 氏名
+        email: メールアドレス
+        password: パスワード
+        password_confirmation: パスワード(確認)
+
+      user_of_facility:
+        name: 利用者名
+        organization: 所属組織名
+        group: グループ名
+        address: 住所
+        tel: 電話番号
+        email: メールアドレス
+        handicap_name: 障がい名
+        handicap_level: 障がい/医療区分
+
+      case_report:
+        occurrence_date: 発生日時
+        name: 利用者名
+        case_name: 事例名
+        content: 内容
+        method: 対応方法
+        result: 対応した結果

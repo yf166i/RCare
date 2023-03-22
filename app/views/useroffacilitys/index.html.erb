@@ -1,0 +1,11 @@
+<% if logged_in? %>
+    <h2 class="title mb-4">利用者一覧</h2>
+    <!-- 検索 -->
+    <%= render 'useroffacilitys/search' %>
+    <!-- 一覧 -->
+    <%= render 'useroffacilitys/list' %>
+    <!-- ページネーション -->
+    <%= paginate @useroffacility, theme: 'bootstrap-5' %>
+<% else %>
+    <%= render 'useroffacilitys/not_logged_in' %>
+<% end %>

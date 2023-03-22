@@ -1,0 +1,35 @@
+<nav class="navbar fixed-top header-background">
+    <div class="container-fluid">
+        <h2 class="navbar-brand color-white">RCase</h2>
+        <!-- ログインしている場合、メニューを表示 -->
+        <% if logged_in? %>
+            <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar" aria-controls="offcanvasNavbar">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasNavbar" aria-labelledby="offcanvasNavbarLabel">
+                <div class="offcanvas-header">
+                    <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+                </div>
+                <div class="offcanvas-body">
+                    <ul class="navbar-nav justify-content-end flex-grow-1 pe-3">
+                        <li class="nav-item text-center">
+                            <%= link_to "利用者管理", useroffacilitys_path, class: "menu-link" %>
+                        </li>
+                        <hr>
+                        <li class="nav-item text-center">
+                            <%= link_to "事例記録", casereports_path, class: "menu-link" %>
+                        </li>
+                        <hr>
+                        <li class="nav-item text-center">
+                            <%= link_to "アカウント情報編集", edit_user_path(current_user), class: "menu-link" %>
+                        </li>
+                        <hr>
+                        <li class="nav-item text-center">
+                            <%= link_to "ログアウト", logout_path, data: { turbo_method: :delete }, class: "menu-link" %>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        <% end %>
+    </div>
+</nav>

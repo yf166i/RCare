@@ -1,0 +1,7 @@
+<h2 class="title mb-4">事例記録一覧</h2>
+<!-- 検索 -->
+<%= render 'casereports/search' %>
+<!-- 一覧 -->
+<%= render 'casereports/list' %>
+<!-- ページネーション -->
+<%= paginate @casereport, theme: 'bootstrap-5' %>

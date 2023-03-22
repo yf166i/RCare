@@ -1,0 +1,42 @@
+<h2 class="title mb-4">事例記録登録</h2>
+<%= form_with model: @casereport, url: {controller: "casereports", action: "create" }, class: "account-form" do |f| %>
+    <%= render "casereports/error" %>
+    <div class="mb-4" style="display: flex;">
+        <div class="form-group w-250" style="margin-right: 2rem;">
+            <%= f.label :occurrence_date %>
+            <%= f.date_field :occurrence_date, class: "form-control" %>
+        </div>
+        <!-- 利用者名は利用者情報の利用者名をドロップダウンで選択 -->
+        <%
+=begin%>
+    DBから取得した値を利用したいのでcollection_selectを使用
+    「:name」は保存先のカラム、第一引数「@useroffacility」はDBから取得した値 
+    第二引数「:id」はvalue、第三引数「:name」は表示するカラム、第四引数「{ prompt: false }」は初期表示の設定、class指定に必須
+<%
+=end%>
+        <div class="form-group w-250">
+            <%= f.label :name %>
+            <%= f.collection_select :name, @useroffacility, :name, :name, { prompt: false }, class: "form-control" %>
+        </div>
+    </div>
+    <div class="form-group mb-4">
+        <%= f.label :case_name %>
+        <%= f.text_field :case_name, class: "form-control" %>
+    </div>
+    <div class="form-group mb-4">
+        <%= f.label :content %>
+        <%= f.text_area :content, rows: 5, class: "form-control" %>
+    </div>
+    <div class="form-group mb-4">
+        <%= f.label :method %>
+        <%= f.text_area :method, rows: 5, class: "form-control" %>
+    </div>
+    <div class="form-group mb-4">
+        <%= f.label :result %>
+        <%= f.text_area :result, rows: 5, class: "form-control" %>
+    </div>
+    <div class="mb-4">
+        <%= f.submit "登録", class: "btn btn-primary" %>
+        <%= link_to "戻る", casereports_path, class: "btn btn-secondary" %>
+    </div>
+<% end %>

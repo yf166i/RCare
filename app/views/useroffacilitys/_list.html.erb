@@ -1,0 +1,35 @@
+<table class="table mb-5">
+    <thead>
+        <tr>
+            <th>利用者名</th>
+            <th>所属組織名</th>
+            <th>グループ名</th>
+            <th class="w-130"></th>
+            <th class="w-110">
+                <%= link_to "新規登録", new_useroffacility_path,  class: "btn btn-primary" %>
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+        <% @useroffacility.each do |item| %>
+            <tr>
+                <td class="pt-1"><%= item.name %></td>
+                <td class="pt-1"><%= item.organization %></td>
+                <td class="pt-1"><%= item.group %></td>
+                <td>
+                    <%= link_to "詳細・編集", edit_useroffacility_path(item), class: "btn btn-success" %>
+                </td>
+                <td>
+                    <%= link_to "削除",
+                        useroffacility_path(item),
+                        data: {
+                            turbo_method: :delete,
+                            turbo_confirm: "本当に削除しますか？"
+                        },
+                        class: "btn btn-danger delete-btn"
+                    %>
+                </td>
+            </tr>
+        <% end %>
+    </tbody>
+</table>

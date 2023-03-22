@@ -1,0 +1,35 @@
+<h2 class="title mb-4">事例記録詳細・編集</h2>
+<%= form_with model: @casereport, url: {controller: "casereports", action: "update" }, class: "account-form" do |f| %>
+    <%= render "casereports/error" %>
+    <div class="mb-4" style="display: flex;">
+        <div class="form-group w-250" style="margin-right: 2rem;">
+            <%= f.label :occurrence_date %>
+            <%= f.date_field :occurrence_date, class: "form-control" %>
+        </div>
+        <!-- 利用者名は更新できないようにしたいので<p>で表示 -->
+        <div class="form-group w-250">
+            <%= f.label :name %>
+            <p style="padding-top: 0.5rem;"><%= @casereport.name %></p>
+        </div>
+    </div>
+    <div class="form-group mb-4">
+        <%= f.label :case_name %>
+        <%= f.text_field :case_name, class: "form-control" %>
+    </div>
+    <div class="form-group mb-4">
+        <%= f.label :content %>
+        <%= f.text_area :content, rows: 5, class: "form-control" %>
+    </div>
+    <div class="form-group mb-4">
+        <%= f.label :method %>
+        <%= f.text_area :method, rows: 5, class: "form-control" %>
+    </div>
+    <div class="form-group mb-4">
+        <%= f.label :result %>
+        <%= f.text_area :result, rows: 5, class: "form-control" %>
+    </div>
+    <div class="mb-4">
+        <%= f.submit "更新", class: "btn btn-primary" %>
+        <%= link_to "戻る", casereports_path, class: "btn btn-secondary" %>
+    </div>
+<% end %>

@@ -1,0 +1,9 @@
+<h2 style="font-size: 1rem;z">発生日時 期間検索</h2>
+<%= search_form_for @q, url: {controller: 'casereports', action: 'index' } do |f| %>
+    <div class="mb-5" style="display: flex;">
+        <%= f.date_field :occurrence_date_gteq, class: "form-control", style: "width: 30%; margin-right: 1rem;" %>
+        <span style="margin-top: 0.5rem">〜</span>
+        <%= f.date_field :occurrence_date_lteq_end_of_day, class: "form-control", style: "width: 30%; margin-left: 1rem;" %>
+        <button class="btn search-btn" style="margin-left: 2rem;">検索</button>
+    </div>
+<% end %>

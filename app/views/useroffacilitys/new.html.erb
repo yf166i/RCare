@@ -1,0 +1,40 @@
+<h2 class="title">利用者情報登録</h2>
+<%= form_with model: @useroffacility, url: {controller: "useroffacilitys", action: "create" }, class: "account-form" do |f| %>
+    <%= render "useroffacilitys/error" %>
+    <div class="form-group mb-4">
+        <%= f.label :name %>
+        <%= f.text_field :name, class: "form-control" %>
+    </div>
+    <div class="form-group mb-4">
+        <%= f.label :organization %>
+        <%= f.text_field :organization, class: "form-control" %>
+    </div>
+    <div class="form-group mb-4">
+        <%= f.label :group %>
+        <%= f.text_field :group, class: "form-control" %>
+    </div>
+    <div class="form-group mb-4">
+        <%= f.label :address %>
+        <%= f.text_field :address, class: "form-control" %>
+    </div>
+    <div class="form-group mb-4">
+        <%= f.label :tel, "電話番号(ハイフンなしで入力してください。)" %>
+        <%= f.text_field :tel, class: "form-control" %>
+    </div>
+    <div class="form-group mb-4">
+        <%= f.label :email %>
+        <%= f.email_field :email, class: "form-control" %>
+    </div>
+    <div class="form-group mb-4">
+        <%= f.label :handicap_name %>
+        <%= f.text_field :handicap_name, class: "form-control" %>
+    </div>
+    <div class="form-group mb-4">
+        <%= f.label :handicap_level %>
+        <%= f.number_field :handicap_level, class: "form-control" %>
+    </div>
+    <div class="mb-4">
+        <%= f.submit "登録", class: "btn btn-primary" %>
+        <%= link_to "戻る", useroffacilitys_path, class: "btn btn-secondary" %>
+    </div>
+<% end %>

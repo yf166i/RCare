@@ -1,0 +1,27 @@
+<%= search_form_for @q, url: {controller: 'useroffacilitys', action: 'index' } do |f| %>
+    <table class="table table-bordered mb-5">
+        <thead style="background-color: #eee;">
+            <tr>
+                <th colspan="3" class="search-th">検索</th>
+            </tr>
+            <tr>
+                <th class="search-th">利用者名</th>
+                <th class="search-th">所属組織名</th>
+                <th class="search-th">グループ</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td><%= f.search_field :name_cont, class: "form-control" %></td>
+                <td><%= f.search_field :organization_cont, class: "form-control" %></td>
+                <td><%= f.search_field :group_cont, class: "form-control" %></td>
+            </tr>
+            <tr>
+                <td colspan="3" class="text-end">
+                    <%= f.button "クリア", type: :reset, class: "btn btn-secondary" %>
+                    <%= f.submit '検索', class: "btn search-btn" %>
+                </td>
+            </tr>
+        </tbody>
+    </div>
+<% end %>
